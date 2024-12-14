@@ -11,10 +11,10 @@ const answerRoutes = require("./routes/answerRoute");
 app.use("/api/user", userRoutes);
 
 // Question routes middleware
-app.use("/api/question", questionRoutes);
+// app.use("/api/question", questionRoutes);
 
 // Answer routes middleware
-app.use("/api/answer", answerRoutes);
+// app.use("/api/answer", answerRoutes);
 
 // Start the server
 app.listen(port, (err) => {
