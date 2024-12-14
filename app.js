@@ -2,31 +2,25 @@ const express = require("express");
 const app = express();
 const port = 5500;
 
+// Import routes
+const userRoutes = require("./routes/userRoute");
+const questionRoutes = require("./routes/questionRoute");
+const answerRoutes = require("./routes/answerRoute");
 
-// // This is a GET route for the root URL ("/")
-// app.get("/",(req, res) => {
-//     res.send("Welcome to my API!");
-// })
+// User routes middleware
+app.use("/api/user", userRoutes);
 
-//register router
-app.post("/api/user/register", (req, res) => {
-  res.send("resgister user")});
+// Question routes middleware
+app.use("/api/question", questionRoutes);
 
-//login user
-app.post("/api/user/login", (req, res) => {
-  res.send("login user");
-});
+// Answer routes middleware
+app.use("/api/answer", answerRoutes);
 
-//check user 
-app.get("/api/user/check", (req, res) => {
-  res.send("check user");
-});
-
-
+// Start the server
 app.listen(port, (err) => {
   if (err) {
-    console.log(err.message);
+    console.log("Error:", err.message);
   } else {
-    console.log(`listening on port ${port}`);
+    console.log(`Server is listening on port ${port}`);
   }
 });
